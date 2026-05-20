@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        DB::statement("ALTER TABLE orders MODIFY COLUMN payment_method ENUM('cash', 'card', 'digital_wallet', 'khqr', 'pending') DEFAULT 'cash'");
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement("ALTER TABLE orders MODIFY COLUMN payment_method ENUM('cash', 'card', 'digital_wallet', 'khqr', 'pending') DEFAULT 'cash'");
+        }
     }
 
     /**
@@ -19,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement("ALTER TABLE orders MODIFY COLUMN payment_method ENUM('cash', 'card', 'digital_wallet', 'khqr') DEFAULT 'cash'");
+        if (DB::getDriverName() !== 'sqlite') {
+            DB::statement("ALTER TABLE orders MODIFY COLUMN payment_method ENUM('cash', 'card', 'digital_wallet', 'khqr') DEFAULT 'cash'");
+        }
     }
 };
