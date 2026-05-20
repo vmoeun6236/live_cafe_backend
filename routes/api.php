@@ -30,6 +30,10 @@ Route::prefix('public')->group(function () {
     Route::get('/orders/{id}',  [SelfServiceController::class, 'trackOrder']);
 });
 
+Route::get('/', function () {
+    return response()->json(['message' => 'Welcome to Cafe Point API']);
+});
+
 
 // ─── Authenticated ───────────────────────────────────────────────────────────
 Route::middleware(['auth:sanctum'])->group(function () {
