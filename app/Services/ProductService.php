@@ -40,6 +40,8 @@ class ProductService extends BaseService
                         'size_name' => $variant['size_name'] ?? 'Regular',
                         'price'     => $variant['price'],
                         'stock_qty' => $variant['stock_qty'] ?? 0,
+                            'barcode'   => $variant['barcode'] ?? null,
+                        'barcode'   => $variant['barcode'] ?? null,
                     ]);
                 }
             }
@@ -95,6 +97,8 @@ class ProductService extends BaseService
                         [
                             'price'     => $variant['price'],
                             'stock_qty' => $variant['stock_qty'] ?? 0,
+                            'barcode'   => $variant['barcode'] ?? null,
+                        'barcode'   => $variant['barcode'] ?? null,
                         ]
                     );
                 }
